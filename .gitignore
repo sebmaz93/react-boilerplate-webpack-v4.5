@@ -59,4 +59,4 @@ typings/
 dist/
 .DS_Store
 .vscode/
-
+stats.json
