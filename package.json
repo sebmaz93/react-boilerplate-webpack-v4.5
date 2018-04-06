@@ -5,7 +5,7 @@
   "author": "Seb.Maz",
   "license": "MIT",
   "scripts": {
-    "serve": "webpack-dashboard -- webpack-dev-server --mode development --open",
+    "serve": "webpack-dev-server --mode development --open",
     "dev": "webpack --mode development ./src/index.js --output ./dist/script.js",
     "build:stats": "webpack --mode production --progress --profile --json > stats.json",
     "build": "webpack --mode production ./src/index.js --output ./dist/script.js",

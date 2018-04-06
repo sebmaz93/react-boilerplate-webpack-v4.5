@@ -6,7 +6,7 @@ const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
-const DashboardPlugin = require("webpack-dashboard/plugin");
+// const DashboardPlugin = require("webpack-dashboard/plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
@@ -111,7 +111,7 @@ module.exports = {
   },
   plugins: [
     new ErrorOverlayPlugin(),
-    new DashboardPlugin(),
+    // new DashboardPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebPackPlugin({
