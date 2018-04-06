@@ -1,3 +1,19 @@
 {
-  "presets": ["env", "react"]
+	"presets": ["env", "react"],
+	"plugins": [
+		[
+			"react-css-modules",
+			{
+				"handleMissingStyleName": "warn",
+				"filetypes": {
+					".scss": {
+						"syntax": "postcss-scss"
+					}
+				},"exclude"	: "node_modules"
+			}
+		],
+		"transform-class-properties",
+		"transform-object-rest-spread",
+		"transform-async-to-generator"
+	]
 }
