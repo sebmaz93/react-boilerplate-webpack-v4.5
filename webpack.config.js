@@ -5,7 +5,7 @@ const ResourceHintWebpackPlugin = require("resource-hints-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
+// const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
 // const DashboardPlugin = require("webpack-dashboard/plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
@@ -17,9 +17,12 @@ module.exports = {
     // Display only errors to reduce the amount of output.
     stats: "errors-only",
     historyApiFallback: true,
-    open: true
-    // overlay: true
-    // compress: true
+    open: true,
+    overlay: {
+      warnings: true,
+      errors: true
+    },
+    compress: true
   },
   optimization: {
     splitChunks: {
@@ -67,6 +70,12 @@ module.exports = {
             options: {
               sourceMap: true
             }
+          },
+          {
+            loader: "sass-resources-loader",
+            options: {
+              resources: "./src/global.scss"
+            }
           }
         ]
       },
@@ -110,7 +119,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ErrorOverlayPlugin(),
+    // new ErrorOverlayPlugin(),
     // new DashboardPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new CleanWebpackPlugin(["dist"]),

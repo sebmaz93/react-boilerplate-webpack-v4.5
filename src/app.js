@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+// import "./re.scss";
 import Jest from "./components/Jest/Jest";
 import Test from "./components/Test/Test";
 import Mest from "./components/Mest/Mest";
