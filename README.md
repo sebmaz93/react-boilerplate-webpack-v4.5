@@ -2,7 +2,7 @@
 
 This is a Minimalist boilerplate uses latest packages and configs. (easy to modify)
 
-##Features
+## Features
 
 * [babel react css modules](https://github.com/gajus/babel-plugin-react-css-modules)
 * modules support both __CSS / SCSS__
