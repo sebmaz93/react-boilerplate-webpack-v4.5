@@ -9,6 +9,6 @@ This is a Minimalist boilerplate uses latest packages and configs. (easy to modi
 * global styles variables (scss)
 * most popular webpack plugins
 
-> adding Redux & more - soon
+> adding Redux, Styled Components & more - soon
 
 
