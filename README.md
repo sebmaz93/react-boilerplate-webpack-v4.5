@@ -12,3 +12,4 @@ This is a Minimalist boilerplate uses latest packages and configs. (easy to modi
 > adding Redux, Styled Components & more - soon
 
 
+*SEB*
