@@ -103,19 +103,33 @@ module.exports = {
       {
         test: /\.(eot?.+|ttf?.+|otf?.+|woff?.+|woff2?.+)$/,
         use: "file-loader?name=assets/[name]-[hash].[ext]"
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: {
+          loader: "image-webpack-loader",
+          options: {
+            bypassOnDebug: true,
+            mozjpeg: {
+              progressive: true,
+              quality: 75
+            },
+            optipng: {
+              enabled: false
+            },
+            pngquant: {
+              quality: "75-90",
+              speed: 2
+            },
+            gifsicle: {
+              interlaced: false
+            },
+            webp: {
+              quality: 75
+            }
+          }
+        }
       }
-      // {
-      //   test: /\.(gif|png|jpe?g|svg)$/i,
-      //   use: [
-      //     "file-loader",
-      //     {
-      //       loader: "image-webpack-loader",
-      //       options: {
-      //         bypassOnDebug: true
-      //       }
-      //     }
-      //   ]
-      // }
     ]
   },
   plugins: [
