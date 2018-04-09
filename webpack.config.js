@@ -86,7 +86,8 @@ module.exports = {
                         "not ie < 9"
                       ],
                       flexbox: "no-2009"
-                    })
+                    }),
+                    require("postcss-cssnext")
                   ]
                 }
               },
