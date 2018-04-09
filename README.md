@@ -4,9 +4,10 @@ This is a Minimalist boilerplate uses latest packages and configs. _(this is mor
 
 ## Features
 
-* [babel react css modules](https://github.com/gajus/babel-plugin-react-css-modules)
+* [Babel react css modules](https://github.com/gajus/babel-plugin-react-css-modules)
 * modules support both **CSS / SCSS**
 * global styles variables (scss)
+* [cssnext !](http://cssnext.io/)syntax support
 * [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 * most popular webpack plugins
 
