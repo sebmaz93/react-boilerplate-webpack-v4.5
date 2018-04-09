@@ -17,6 +17,8 @@ module.exports = {
     // Display only errors to reduce the amount of output.
     stats: "errors-only",
     historyApiFallback: true,
+    quiet: true,
+    hotOnly: true,
     open: true,
     overlay: {
       warnings: true,
@@ -36,76 +38,86 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      },
-      {
-        test: /\.html$/,
-        use: [
+        oneOf: [
           {
-            loader: "html-loader",
-            options: { minimize: true }
-          }
-        ]
-      },
-      {
-        test: /\.(css|sass|scss)$/,
-        exclude: /node_modules/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            query: {
-              modules: true,
-              localIdentName: "[path]___[name]__[local]___[hash:base64:5]",
-              minimize: true
-            }
-          },
-          "resolve-url-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader"
             }
           },
           {
-            loader: "sass-resources-loader",
-            options: {
-              resources: "./src/global.scss"
+            test: /\.html$/,
+            use: [
+              {
+                loader: "html-loader",
+                options: { minimize: true }
+              }
+            ]
+          },
+          {
+            test: /\.(css|sass|scss)$/,
+            exclude: /node_modules\/(?!(sanitize.css|normalize.css)\/).*/,
+            use: [
+              // USE STYLE LOADER FOR DEV TO ENABLE HOT RELOAD
+              // "style-loader",
+              // DISABLE MINICSS FOR DEV IF YOU WANT TO HOT RELOAD
+              MiniCssExtractPlugin.loader,
+              {
+                loader: "css-loader",
+                query: {
+                  modules: true,
+                  localIdentName: "[path]___[name]__[local]___[hash:base64:5]",
+                  minimize: true
+                }
+              },
+              "resolve-url-loader",
+              {
+                loader: "sass-loader",
+                options: {
+                  sourceMap: true
+                }
+              },
+              {
+                loader: "sass-resources-loader",
+                options: {
+                  resources: "./src/global.scss"
+                }
+              }
+            ]
+          },
+          {
+            test: /\.svg/,
+            use: {
+              loader: "svg-url-loader"
+            }
+          },
+          {
+            test: /\.(jpg|png)$/,
+            use: {
+              loader: "url-loader",
+              options: {
+                limit: 25000,
+                name: "static/media/[name].[hash:8].[ext]"
+              }
+            }
+          },
+          {
+            // test: /\.(eot?.+|ttf?.+|otf?.+|woff?.+|woff2?.+)$/,
+            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /node_modules/],
+            use: {
+              loader: "file-loader",
+              options: {
+                name: "static/media/[name].[hash:8].[ext]"
+              }
             }
           }
         ]
-      },
-      // new OptimizeCssAssetsPlugin({
-      //   assetNameRegExp: /\.optimize\.css$/g,
-      //   cssProcessor: require("cssnano"),
-      //   cssProcessorOptions: { discardComments: { removeAll: true } },
-      //   canPrint: true
-      // }),
-      {
-        test: /\.svg/,
-        use: {
-          loader: "svg-url-loader"
-        }
-      },
-      {
-        test: /\.(jpg|png)$/,
-        use: {
-          loader: "url-loader",
-          options: {
-            limit: 25000
-          }
-        }
-      },
-      {
-        test: /\.(eot?.+|ttf?.+|otf?.+|woff?.+|woff2?.+)$/,
-        use: "file-loader?name=assets/[name]-[hash].[ext]"
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
+        exclude: /node_modules/,
+        enforce: "pre",
         use: {
           loader: "image-webpack-loader",
           options: {
@@ -136,6 +148,7 @@ module.exports = {
     // new ErrorOverlayPlugin(),
     // new DashboardPlugin(),
     new FriendlyErrorsWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebPackPlugin({
       template: "./src/index.html",

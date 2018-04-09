@@ -12,6 +12,7 @@
 				},"exclude"	: "node_modules"
 			}
 		],
+		"react-hot-loader/babel",
 		"transform-class-properties",
 		"transform-object-rest-spread",
 		"transform-async-to-generator"
