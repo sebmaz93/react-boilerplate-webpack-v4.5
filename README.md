@@ -5,11 +5,11 @@ This is a Minimalist boilerplate uses latest packages and configs. (easy to modi
 ## Features
 
 * [babel react css modules](https://github.com/gajus/babel-plugin-react-css-modules)
-* modules support both __CSS / SCSS__
+* modules support both **CSS / SCSS**
 * global styles variables (scss)
+* React Hot Reload
 * most popular webpack plugins
 
 > adding Redux, Styled Components & more - soon
 
-
-*SEB*
+_SEB_

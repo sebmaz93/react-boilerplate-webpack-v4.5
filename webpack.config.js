@@ -59,9 +59,8 @@ module.exports = {
             test: /\.(css|sass|scss)$/,
             exclude: /node_modules\/(?!(sanitize.css|normalize.css)\/).*/,
             use: [
-              // USE STYLE LOADER FOR DEV TO ENABLE HOT RELOAD
               // "style-loader",
-              // DISABLE MINICSS FOR DEV IF YOU WANT TO HOT RELOAD
+              "css-hot-loader",
               MiniCssExtractPlugin.loader,
               {
                 loader: "css-loader",
