@@ -10,6 +10,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
   devtool: "source-map",
@@ -68,6 +69,25 @@ module.exports = {
                   modules: true,
                   localIdentName: "[path]___[name]__[local]___[hash:base64:5]",
                   minimize: true
+                }
+              },
+              {
+                loader: require.resolve("postcss-loader"),
+                options: {
+                  sourceMap: true,
+                  ident: "postcss",
+                  plugins: () => [
+                    require("postcss-flexbugs-fixes"),
+                    autoprefixer({
+                      browsers: [
+                        ">1%",
+                        "last 4 versions",
+                        "Firefox ESR",
+                        "not ie < 9"
+                      ],
+                      flexbox: "no-2009"
+                    })
+                  ]
                 }
               },
               "resolve-url-loader",
