@@ -9,6 +9,7 @@ This is a Minimalist boilerplate uses latest packages and configs. _(this is mor
 * global styles variables (scss)
 * [cssnext !](http://cssnext.io/)syntax support
 * [React Hot Loader](https://github.com/gaearon/react-hot-loader)
+* ESlinter for React
 * most popular webpack plugins
 
 > adding Redux, Router, Styled Components & more - soon
