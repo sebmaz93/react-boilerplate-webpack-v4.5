@@ -1,10 +1,10 @@
-import React from "react";
-import { hot } from "react-hot-loader";
+import React from 'react';
+import { hot } from 'react-hot-loader';
 
-import Jest from "./Jest/Jest";
-import Test from "./Test/Test";
-import Mest from "./Mest/Mest";
-import "./App.css";
+import Jest from './Jest/Jest';
+import Test from './Test/Test';
+import Mest from './Mest/Mest';
+import './App.css';
 
 const App = () => {
 	return (

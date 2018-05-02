@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import "./Mest.scss";
+import './Mest.scss';
 
 const Mest = () => {
 	return (
