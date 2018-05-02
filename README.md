@@ -15,3 +15,4 @@ This is a Minimalist boilerplate uses latest packages and configs. _(this is mor
 > adding Redux, Router, Styled Components & more - soon
 
 _SEB_
+# popcorn
