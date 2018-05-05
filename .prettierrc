@@ -1,5 +1,5 @@
 {
-	"printhWidth": 100,
+	"printWidth": 100,
 	"parser": "babylon",
 	"tabWidth": 2,
 	"singleQuote": true,
@@ -7,7 +7,7 @@
 	"trailingComma": "none",
 	"bracketSpacing": true,
 	"jsxBracketSameLine": false,
-	"arrowParens": "avoid",
+	"arrowParents": "avoid",
 	"requirePragma": false,
 	"proseWrap": "preserve"
 }
