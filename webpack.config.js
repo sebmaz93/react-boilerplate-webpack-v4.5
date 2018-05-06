@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
@@ -9,12 +8,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
   devtool: 'source-map',
   devServer: {
-    // Display only errors to reduce the amount of output.
     stats: 'errors-only',
     historyApiFallback: true,
     quiet: true,
@@ -62,7 +59,7 @@ module.exports = {
             ]
           },
           {
-            test: /\.(css|sass|scss)$/,
+            test: /\.css$/,
             exclude: /node_modules\/(?!(sanitize.css|normalize.css)\/).*/,
             oneOf: [
               {
@@ -71,7 +68,6 @@ module.exports = {
               },
               {
                 use: [
-                  // "style-loader",
                   'css-hot-loader',
                   MiniCssExtractPlugin.loader,
                   {
@@ -87,29 +83,10 @@ module.exports = {
                     options: {
                       sourceMap: true,
                       ident: 'postcss',
-                      plugins: () => [
-                        require('postcss-flexbugs-fixes'),
-                        // autoprefixer({
-                        //   browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
-                        //   flexbox: 'no-2009'
-                        // }),
-                        require('postcss-cssnext')
-                      ]
+                      plugins: () => [require('postcss-flexbugs-fixes'), require('postcss-cssnext')]
                     }
                   },
                   'resolve-url-loader'
-                  // {
-                  //   loader: 'sass-loader',
-                  //   options: {
-                  //     sourceMap: true
-                  //   }
-                  // },
-                  // {
-                  //   loader: 'sass-resources-loader',
-                  //   options: {
-                  //     resources: './src/global.scss'
-                  //   }
-                  // }
                 ]
               }
             ]
@@ -131,7 +108,6 @@ module.exports = {
             }
           },
           {
-            // test: /\.(eot?.+|ttf?.+|otf?.+|woff?.+|woff2?.+)$/,
             exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /node_modules/],
             use: {
               loader: 'file-loader',
