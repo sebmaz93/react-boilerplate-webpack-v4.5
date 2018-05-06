@@ -1,8 +1,14 @@
 .jest {
-	color: blue;
-	background-color: red;
+  font-size: 20px;
 }
 
-.style {
-	border: solid 5px green;
+.online_img {
+  background-image: url('./../../assets/reactjs_sticker.png');
+  background-position: center;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

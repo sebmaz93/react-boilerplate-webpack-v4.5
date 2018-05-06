@@ -1,21 +1,21 @@
-const webpack = require("webpack");
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const ResourceHintWebpackPlugin = require("resource-hints-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
-const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
-const autoprefixer = require("autoprefixer");
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  devtool: "source-map",
+  devtool: 'source-map',
   devServer: {
     // Display only errors to reduce the amount of output.
-    stats: "errors-only",
+    stats: 'errors-only',
     historyApiFallback: true,
     quiet: true,
     hotOnly: true,
@@ -28,20 +28,20 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: "initial"
+      chunks: 'initial'
     },
     minimizer: [new UglifyWebpackPlugin({ sourceMap: true, parallel: true })],
     runtimeChunk: {
-      name: "manifest"
+      name: 'manifest'
     }
   },
   module: {
     rules: [
       {
-        enforce: "pre",
-        test: /\.js$/,
+        enforce: 'pre',
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: "eslint-loader"
+        loader: 'eslint-loader'
       },
       {
         oneOf: [
@@ -49,14 +49,14 @@ module.exports = {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: {
-              loader: "babel-loader"
+              loader: 'babel-loader'
             }
           },
           {
             test: /\.html$/,
             use: [
               {
-                loader: "html-loader",
+                loader: 'html-loader',
                 options: { minimize: true }
               }
             ]
@@ -64,66 +64,69 @@ module.exports = {
           {
             test: /\.(css|sass|scss)$/,
             exclude: /node_modules\/(?!(sanitize.css|normalize.css)\/).*/,
-            use: [
-              // "style-loader",
-              "css-hot-loader",
-              MiniCssExtractPlugin.loader,
+            oneOf: [
               {
-                loader: "css-loader",
-                query: {
-                  modules: true,
-                  localIdentName: "[path]___[name]__[local]___[hash:base64:5]",
-                  minimize: true
-                }
+                resourceQuery: /^\?raw$/,
+                use: ['style-loader', 'css-loader']
               },
               {
-                loader: require.resolve("postcss-loader"),
-                options: {
-                  sourceMap: true,
-                  ident: "postcss",
-                  plugins: () => [
-                    require("postcss-flexbugs-fixes"),
-                    autoprefixer({
-                      browsers: [
-                        ">1%",
-                        "last 4 versions",
-                        "Firefox ESR",
-                        "not ie < 9"
-                      ],
-                      flexbox: "no-2009"
-                    }),
-                    require("postcss-cssnext")
-                  ]
-                }
-              },
-              "resolve-url-loader",
-              {
-                loader: "sass-loader",
-                options: {
-                  sourceMap: true
-                }
-              },
-              {
-                loader: "sass-resources-loader",
-                options: {
-                  resources: "./src/global.scss"
-                }
+                use: [
+                  // "style-loader",
+                  'css-hot-loader',
+                  MiniCssExtractPlugin.loader,
+                  {
+                    loader: 'css-loader',
+                    query: {
+                      modules: true,
+                      localIdentName: '[path]___[name]__[local]___[hash:base64:5]',
+                      minimize: true
+                    }
+                  },
+                  {
+                    loader: require.resolve('postcss-loader'),
+                    options: {
+                      sourceMap: true,
+                      ident: 'postcss',
+                      plugins: () => [
+                        require('postcss-flexbugs-fixes'),
+                        // autoprefixer({
+                        //   browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
+                        //   flexbox: 'no-2009'
+                        // }),
+                        require('postcss-cssnext')
+                      ]
+                    }
+                  },
+                  'resolve-url-loader'
+                  // {
+                  //   loader: 'sass-loader',
+                  //   options: {
+                  //     sourceMap: true
+                  //   }
+                  // },
+                  // {
+                  //   loader: 'sass-resources-loader',
+                  //   options: {
+                  //     resources: './src/global.scss'
+                  //   }
+                  // }
+                ]
               }
             ]
           },
           {
             test: /\.svg/,
             use: {
-              loader: "svg-url-loader"
+              loader: 'svg-url-loader'
             }
           },
           {
             test: /\.(jpg|png)$/,
             use: {
-              loader: "url-loader",
+              loader: 'url-loader',
               options: {
-                limit: 25000,
-                name: "static/media/[name].[hash:8].[ext]"
+                limit: 100000,
+                name: 'static/media/[name].[hash:8].[ext]'
               }
             }
           },
@@ -131,9 +134,9 @@ module.exports = {
             // test: /\.(eot?.+|ttf?.+|otf?.+|woff?.+|woff2?.+)$/,
             exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /node_modules/],
             use: {
-              loader: "file-loader",
+              loader: 'file-loader',
               options: {
-                name: "static/media/[name].[hash:8].[ext]"
+                name: 'static/media/[name].[hash:8].[ext]'
               }
             }
           }
@@ -142,9 +145,9 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         exclude: /node_modules/,
-        enforce: "pre",
+        enforce: 'pre',
         use: {
-          loader: "image-webpack-loader",
+          loader: 'image-webpack-loader',
           options: {
             bypassOnDebug: true,
             mozjpeg: {
@@ -155,7 +158,7 @@ module.exports = {
               enabled: false
             },
             pngquant: {
-              quality: "75-90",
+              quality: '75-90',
               speed: 2
             },
             gifsicle: {
@@ -173,10 +176,10 @@ module.exports = {
     // new ErrorOverlayPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin(["dist"]),
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html",
+      template: './src/index.html',
+      filename: './index.html',
       minify: {
         collapseWhitespace: true,
         collapseInlineTagWhitespace: true,
@@ -186,10 +189,10 @@ module.exports = {
     }),
     new ResourceHintWebpackPlugin(),
     new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: "defer"
+      defaultAttribute: 'defer'
     }),
     new FaviconsWebpackPlugin({
-      logo: "./src/favicon.png",
+      logo: './src/favicon.png',
       persistentCache: false,
       icons: {
         android: true,
@@ -205,8 +208,8 @@ module.exports = {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: '[name].css',
+      chunkFilename: '[id].css'
     })
   ]
 };

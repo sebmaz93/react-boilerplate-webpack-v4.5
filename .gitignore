@@ -60,3 +60,5 @@ dist/
 .DS_Store
 .vscode/
 stats.json
+.idea
+.idea/

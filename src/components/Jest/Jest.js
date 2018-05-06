@@ -1,12 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import './Jest.css';
 
 const Jest = () => {
 	return (
 		<div>
-			<p styleName="jest style">Jest here! - THIS IS CSS</p>
+			<p styleName="jest" className="style">
+				Color from CSS Modules
+				<br />
+				Font Weight from Global.css
+			</p>
+			<div styleName="online_img" />
 		</div>
 	);
 };
