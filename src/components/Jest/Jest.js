@@ -10,7 +10,13 @@ const Jest = () => {
 				<br />
 				Font Weight from Global.css
 			</p>
-			<div styleName="online_img" />
+			<a
+				href="https://github.com/TITAN9389/react-boilerplate-webpack-v4.5"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div styleName="online_img" />
+			</a>
 		</div>
 	);
 };
