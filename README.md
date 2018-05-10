@@ -4,6 +4,7 @@ This is a Minimalist boilerplate uses latest packages and configs. _(this is mor
 
 ## Features
 
+*   [Styled-Components](https://www.styled-components.com/docs/advanced)
 *   [Babel react css modules](https://github.com/gajus/babel-plugin-react-css-modules)
 *   global styles global.css
 *   [cssnext !](http://cssnext.io/)syntax support
@@ -12,8 +13,4 @@ This is a Minimalist boilerplate uses latest packages and configs. _(this is mor
 *   most popular webpack plugins
 *   share live preview via your device IP
 
-> adding Redux, Router, Styled Components & more - soon
-
-_SEB_
-
-# popcorn
+> adding Redux, Router & more - soon

@@ -14,16 +14,16 @@ html {
 }
 
 body {
-  position: relative;
-  min-height: 100vh;
+  /* position: relative;
+  min-height: 100vh;*/
 
   /*CUSTOM FOR TESTING*/
-  padding: 30px;
+  /*   padding: 30px;*/
   background-image: url(./assets/react_npm.png), linear-gradient(to bottom right, #26d0ce, #1a2980);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-blend-mode: overlay;
+  /*background-size: cover;*/
+  /*background-attachment: fixed;*/
+  /*background-position: center;*/
+  /*background-blend-mode: overlay;*/
 }
 
 a:visited,
