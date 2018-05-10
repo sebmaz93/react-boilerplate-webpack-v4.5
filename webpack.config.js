@@ -117,35 +117,35 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        exclude: /node_modules/,
-        enforce: 'pre',
-        use: {
-          loader: 'image-webpack-loader',
-          options: {
-            bypassOnDebug: true,
-            mozjpeg: {
-              progressive: true,
-              quality: 75
-            },
-            optipng: {
-              enabled: false
-            },
-            pngquant: {
-              quality: '75-90',
-              speed: 2
-            },
-            gifsicle: {
-              interlaced: false
-            },
-            webp: {
-              quality: 75
-            }
-          }
-        }
       }
+      // {
+      //   test: /\.(gif|png|jpe?g|svg)$/i,
+      //   exclude: /node_modules/,
+      //   enforce: 'pre',
+      //   use: {
+      //     loader: 'image-webpack-loader',
+      //     options: {
+      //       bypassOnDebug: true,
+      //       mozjpeg: {
+      //         progressive: true,
+      //         quality: 75
+      //       },
+      //       optipng: {
+      //         enabled: false
+      //       },
+      //       pngquant: {
+      //         quality: '75-90',
+      //         speed: 2
+      //       },
+      //       gifsicle: {
+      //         interlaced: false
+      //       },
+      //       webp: {
+      //         quality: 75
+      //       }
+      //     }
+      //   }
+      // }
     ]
   },
   plugins: [

@@ -10,6 +10,7 @@ This is a Minimalist boilerplate uses latest packages and configs. _(this is mor
 *   [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 *   ESlinter for React
 *   most popular webpack plugins
+*   share live preview via your device IP
 
 > adding Redux, Router, Styled Components & more - soon
 

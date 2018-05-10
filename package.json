@@ -9,7 +9,7 @@
 },
   "license": "MIT",
   "scripts": {
-    "serve": "webpack-dev-server --mode development",
+    "serve": "webpack-dev-server --mode development --host 0.0.0.0",
     "dev": "webpack --mode development ./src/index.js --output ./dist/script.js",
     "build:stats": "webpack --mode production --progress --profile --json > stats.json",
     "build": "webpack --mode production ./src/index.js --output ./dist/script.js",
