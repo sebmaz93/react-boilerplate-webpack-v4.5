@@ -12,5 +12,3 @@ This is a Minimalist boilerplate uses latest packages and configs. _(this is mor
 *   ESlinter for React
 *   most popular webpack plugins
 *   share live preview via your device IP
-
-> adding Redux, Router & more - soon

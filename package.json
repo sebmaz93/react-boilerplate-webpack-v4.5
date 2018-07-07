@@ -4,9 +4,9 @@
   "main": "index.js",
   "author": "Seb.Maz",
   "repository": {
-  "type": "git",
-  "url": "git://github.com/TITAN9389/react-boilerplate-webpack-v4.5"
-},
+    "type": "git",
+    "url": "git://github.com/TITAN9389/react-boilerplate-webpack-v4.5"
+  },
   "license": "MIT",
   "scripts": {
     "serve": "webpack-dev-server --mode development --host 0.0.0.0",
@@ -43,7 +43,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "image-webpack-loader": "^4.2.0",
+    "image-webpack-loader": "^4.3.1",
     "mini-css-extract-plugin": "^0.4.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-flexbugs-fixes": "^3.3.0",
@@ -61,13 +61,18 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.5.0",
     "webpack-cli": "^2.0.14",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-plugin-react-css-modules": "^3.3.3",
     "express": "^4.16.3",
     "normalize.css": "^8.0.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
     "react-transition-group": "^2.3.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "sanitize.css": "5.0",
     "styled-components": "^3.2.6"
   }
