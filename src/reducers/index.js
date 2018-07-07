@@ -10,21 +10,3 @@ export default combineReducers({
 	expenses: expensesReducer,
 	filters: filtersReducer
 });
-
-// const demoState = {
-// 	expenses: [
-// 		{
-// 			id: '123',
-// 			desc: 'Jan Rent',
-// 			note: 'this was House Rent',
-// 			amound: 300,
-// 			createdAt: 0
-// 		}
-// 	],
-// 	filters: {
-// 		text: 'rent',
-// 		sortBy: 'amount', // Date or Amount
-// 		startDate: undefined,
-// 		endDate: undefined
-// 	}
-// };

@@ -74,7 +74,8 @@ module.exports = {
                     loader: 'css-loader',
                     query: {
                       modules: true,
-                      localIdentName: '[path]___[name]__[local]___[hash:base64:5]',
+                      localIdentName:
+                        '[path]___[name]__[local]___[hash:base64:5]',
                       minimize: true
                     }
                   },
@@ -83,7 +84,10 @@ module.exports = {
                     options: {
                       sourceMap: true,
                       ident: 'postcss',
-                      plugins: () => [require('postcss-flexbugs-fixes'), require('postcss-cssnext')]
+                      plugins: () => [
+                        require('postcss-flexbugs-fixes'),
+                        require('postcss-cssnext')
+                      ]
                     }
                   },
                   'resolve-url-loader'
@@ -118,34 +122,6 @@ module.exports = {
           }
         ]
       }
-      // {
-      //   test: /\.(gif|png|jpe?g|svg)$/i,
-      //   exclude: /node_modules/,
-      //   enforce: 'pre',
-      //   use: {
-      //     loader: 'image-webpack-loader',
-      //     options: {
-      //       bypassOnDebug: true,
-      //       mozjpeg: {
-      //         progressive: true,
-      //         quality: 75
-      //       },
-      //       optipng: {
-      //         enabled: false
-      //       },
-      //       pngquant: {
-      //         quality: '75-90',
-      //         speed: 2
-      //       },
-      //       gifsicle: {
-      //         interlaced: false
-      //       },
-      //       webp: {
-      //         quality: 75
-      //       }
-      //     }
-      //   }
-      // }
     ]
   },
   plugins: [
